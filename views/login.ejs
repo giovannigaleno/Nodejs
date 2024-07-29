@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión</title>
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <form action="/login" method="POST">
+        <div>
+            <label>Nombre de Usuario:</label>
+            <input type="text" name="username">
+            <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'username')) { %>
+                <span><%= errors.find(e => e.param === 'username').msg %></span>
+            <% } %>
+        </div>
+        <div>
+            <label>Contraseña:</label>
+            <input type="password" name="password">
+            <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'password')) { %>
+                <span><%= errors.find(e => e.param === 'password').msg %></span>
+            <% } %>
+        </div>
+        <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'global')) { %>
+            <div><%= errors.find(e => e.param === 'global').msg %></div>
+        <% } %>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+</body>
+</html>

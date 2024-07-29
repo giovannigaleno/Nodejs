@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+header h1{
+    margin: 0;
+}
+
+nav{
+    background-color: gray;
+    color: white;
+    width: 100%; height: 40px;
+    text-align: center;
+}
+
+nav a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 18%; height: 100%;
+    background-color: rgb(104, 104, 104);
+    text-decoration: none;
+    color: white;
+}
+
+
+nav a:hover {
+    background-color: rgb(79,79,79);
+}
+
+main{
+    background-color: aquamarine;
+    width: 100%;min-height: 450px;
+}
+
+
+iframe{
+    background-color: white;
+    position: relative;
+    width: 100%;min-height: 450px;
+}

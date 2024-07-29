@@ -1,0 +1,37 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+</head>
+<body>
+    <h1>Registrar Usuario</h1>
+    <form action="/register" method="POST">
+        <div>
+            <label>Nombre de Usuario:</label>
+            <input type="text" name="username">
+            <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'username')) { %>
+                <span><%= errors.find(e => e.param === 'username').msg %></span>
+            <% } %>
+        </div>
+        <div>
+            <label>Contraseña:</label>
+            <input type="password" name="password">
+            <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'password')) { %>
+                <span><%= errors.find(e => e.param === 'password').msg %></span>
+            <% } %>
+        </div>
+        <div>
+            <label>Confirmar Contraseña:</label>
+            <input type="password" name="passwordConfirm">
+            <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'passwordConfirm')) { %>
+                <span><%= errors.find(e => e.param === 'passwordConfirm').msg %></span>
+            <% } %>
+        </div>
+        <% if (typeof errors !== 'undefined' && errors.find(e => e.param === 'global')) { %>
+            <div><%= errors.find(e => e.param === 'global').msg %></div>
+        <% } %>
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>
