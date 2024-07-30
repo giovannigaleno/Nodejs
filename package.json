@@ -1,7 +1,7 @@
 {
   "name": "express",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app6.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app6.js"
@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "", 
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",

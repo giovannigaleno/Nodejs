@@ -5,15 +5,15 @@ const { body, validationResult } = require('express-validator');
 const mysql = require('mysql2');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
-require('dotenv').config();
 
 // Configuración de la conexión a la base de datos
+require('dotenv').config();
 let conexion = mysql.createConnection({
     host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT,
     database: process.env.MYSQLDATABASE,
     user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD
+    password: process.env.MYSQLPASSWORD,
+    port: process.env.MYSQLPORT
 });
 
 // Conexión a la base de datos
@@ -86,6 +86,7 @@ app.get('/register', (req, res) => {
     res.render('register', { errors: [] }); // Pasa una variable `errors` vacía si no hay errores
 });
 
+
 app.post('/register', [
     body('username', 'Nombre de usuario es requerido').notEmpty(),
     body('password', 'Contraseña es requerida').notEmpty(),
@@ -116,6 +117,8 @@ app.post('/register', [
         });
     }
 });
+
+
 
 // Ruta para el inicio de sesión
 app.get('/login', (req, res) => {
@@ -151,6 +154,7 @@ app.post('/login', [
     }
 });
 
+
 // Ruta para cerrar sesión
 app.get('/logout', (req, res) => {
     req.session.destroy(err => {
@@ -163,6 +167,7 @@ app.get('/logout', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('SERVER UP en http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`SERVER UP en http://localhost:${PORT}`);
 });
