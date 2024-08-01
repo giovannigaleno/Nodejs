@@ -7,22 +7,20 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-// Configuración de la conexión a la base de datos
-let conexion = mysql.createConnection({
-    host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT,
-    database: process.env.MYSQLDATABASE,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD
-});
+// Obtener la URL de conexión desde la variable de entorno
+const mysqlUrl = process.env.DATABASE_URL;
+
+// Crear la conexión usando la URL
+const conexion = mysql.createConnection(mysqlUrl);
+
 
 // Conexión a la base de datos
 conexion.connect((err) => {
     if (err) {
-        console.error('Error al conectar a la base de datos: ' + err.stack);
+        console.error('Error al conectar a la base de datos: ', err);
         return;
     }
-    console.log('Conectado a la base de datos como ID ' + conexion.threadId);
+    console.log('Conectado a la base de datos');
 });
 
 // Configuración de la sesión

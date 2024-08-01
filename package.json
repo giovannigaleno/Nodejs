@@ -1,10 +1,10 @@
 {
   "name": "express",
   "version": "1.0.0",
-  "main": "app6.js",
+  "main": "app7.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app6.js"
+    "start": "node app7.js"
   },
   "keywords": [],
   "author": "",
